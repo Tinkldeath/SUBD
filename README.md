@@ -6,7 +6,7 @@
 * Moderator
 * Administrator
 
-### Functional requirements:
+## Functional requirements:
 
 ## For user: 
 * Authorization
