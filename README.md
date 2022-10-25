@@ -39,6 +39,6 @@
 * Editing users (CRUD and change permissions)
 
 ## Infological model:
-![alt text] (https://github.com/Tinkldeath/SUBD/blob/main/Lab1/Entities.png)
+![alt text](https://github.com/Tinkldeath/SUBD/blob/main/Entities.png?raw=true)
 
 ## Dmitriy Mironchyk, 053503
