@@ -37,3 +37,5 @@
 * Editing tracks (CRUD)
 * Editing albums (CRUD)
 * Editing users (CRUD and change permissions)
+
+## Dmitriy Mironchyk, 053503
