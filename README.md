@@ -38,7 +38,7 @@
 * Editing albums (CRUD)
 * Editing users (CRUD and change permissions)
 
-## Infological model:
+## Datalogical model:
 ![alt text](https://github.com/Tinkldeath/SUBD/blob/main/Lab1/Entities.png?raw=true)
 
 ## Dmitriy Mironchyk, 053503
