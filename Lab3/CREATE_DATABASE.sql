@@ -14,17 +14,20 @@ CREATE TABLE IF NOT EXISTS Album(
 	idAlbum INTEGER PRIMARY KEY UNIQUE AUTO_INCREMENT,
 	Title VARCHAR(45),
 	ImageUrl VARCHAR(200),
+    Artist_idArtist INT,
 	
-	CONSTRAINT Artist_idArtist FOREIGN KEY(idArtist)
+	CONSTRAINT albumArtist FOREIGN KEY(Artist_idArtist)
 		REFERENCES Artist(idArtist)
+        ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS Track(
 	idTrack INTEGER PRIMARY KEY UNIQUE AUTO_INCREMENT,
 	Title VARCHAR(45),
 	AudioUrl VARCHAR(200),
+    Album_idAlbum INT,
 	
-	CONSTRAINT Album_idAlbum FOREIGN KEY(idAlbum)
+	CONSTRAINT trackAlbum FOREIGN KEY(Album_idAlbum)
 		REFERENCES Album(idAlbum)
 );
 
@@ -36,12 +39,13 @@ CREATE TABLE IF NOT EXISTS Permission(
     IsAdmin INT(1)
 );
 
-CREATE TABLE IF NOT EXISTS User(
+CREATE TABLE IF NOT EXISTS Users(
 	idUser INTEGER PRIMARY KEY UNIQUE AUTO_INCREMENT,
 	Login VARCHAR(45),
-	Password VARCHAR(45),
+	PasswordValue VARCHAR(45),
+    permission INT,
 	
-    CONSTRAINT Permission_idPermission FOREIGN KEY (idPermission)
+    CONSTRAINT permission FOREIGN KEY (permission)
     REFERENCES Permission(idPermission)
 );	
 
@@ -49,9 +53,11 @@ CREATE TABLE IF NOT EXISTS Playlist(
 	idPlaylist INTEGER PRIMARY KEY UNIQUE AUTO_INCREMENT,
 	Title VARCHAR(45),
 	ImageUrl VARCHAR(200),
+    User_idUser INT,
 	
-    CONSTRAINT User_idUser FOREIGN KEY (idUser)
-    REFERENCES User(idUser)
+    CONSTRAINT idUser FOREIGN KEY (User_idUser)
+    REFERENCES Users(idUser)
+    ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS Track_has_Genre(
@@ -59,10 +65,10 @@ CREATE TABLE IF NOT EXISTS Track_has_Genre(
 	Track_idTrack INT,
 	Genre_idGenre INT,
 	
-    CONSTRAINT Track_idTrack FOREIGN KEY (idTrack)
+    CONSTRAINT genreTrack FOREIGN KEY (Track_idTrack)
     REFERENCES Track(idTrack),
     
-    CONSTRAINT Genre_idGenre FOREIGN KEY (idGenre)
+    CONSTRAINT trackGenre FOREIGN KEY (Genre_idGenre)
     REFERENCES Genre(idGenre)
 );
 
@@ -71,10 +77,10 @@ CREATE TABLE IF NOT EXISTS Playlist_has_Genre(
 	Playlist_idPlaylist INT,
 	Genre_idGenre INT,
 	
-    CONSTRAINT Playlist_idPlaylist FOREIGN KEY (idPlaylist)
+    CONSTRAINT genrePlaylist FOREIGN KEY (Playlist_idPlaylist)
     REFERENCES Playlist(idPlaylist),
     
-    CONSTRAINT Genre_idGenre FOREIGN KEY (idGenre)
+    CONSTRAINT playlistGenre FOREIGN KEY (Genre_idGenre)
     REFERENCES Genre(idGenre)
 );
 
@@ -83,10 +89,10 @@ CREATE TABLE IF NOT EXISTS Album_has_Genre(
 	Album_idAlbum INT,
 	Genre_idGenre INT,
 	
-    CONSTRAINT Album_idAlbum FOREIGN KEY (idAlbum)
+    CONSTRAINT genreAlbum FOREIGN KEY (Album_idAlbum)
     REFERENCES Album(idAlbum),
     
-    CONSTRAINT Genre_idGenre FOREIGN KEY (idGenre)
+    CONSTRAINT albumGenre FOREIGN KEY (Genre_idGenre)
     REFERENCES Genre(idGenre)
 );
 
@@ -95,10 +101,10 @@ CREATE TABLE IF NOT EXISTS Artist_has_Genre(
 	Artist_idArtist INT,
 	Genre_idGenre INT,
 	
-    CONSTRAINT Artist_idArtist FOREIGN KEY (idArtist)
+    CONSTRAINT genreArtist FOREIGN KEY (Artist_idArtist)
     REFERENCES Artist(idArtist),
     
-    CONSTRAINT Genre_idGenre FOREIGN KEY (idGenre)
+    CONSTRAINT artistGenre FOREIGN KEY (Genre_idGenre)
     REFERENCES Genre(idGenre)
 );
 
@@ -107,10 +113,10 @@ CREATE TABLE IF NOT EXISTS Playlist_has_Track(
 	Playlist_idPlaylist INT,
 	Track_idTrack INT,
 	
-    CONSTRAINT Playlist_idPlaylist FOREIGN KEY (idPlaylist)
+    CONSTRAINT trackPlaylist FOREIGN KEY (Playlist_idPlaylist)
     REFERENCES Playlist(idPlaylist),
     
-    CONSTRAINT Track_idTrack FOREIGN KEY (idTrack)
+    CONSTRAINT playlistTrack FOREIGN KEY (Track_idTrack)
     REFERENCES Track(idTrack)
 );
 
@@ -119,9 +125,9 @@ CREATE TABLE IF NOT EXISTS Track_has_Artist(
 	Track_idTrack INT,
 	Artist_idArtist INT,
 	
-    CONSTRAINT Track_idTrack FOREIGN KEY (idTrack)
+    CONSTRAINT trackArtist FOREIGN KEY (Track_idTrack)
     REFERENCES Track(idTrack),
     
-    CONSTRAINT Artist_idArtist FOREIGN KEY (idArtist)
+    CONSTRAINT artistTrack FOREIGN KEY (Artist_idArtist)
     REFERENCES Artist(idArtist)
 );
