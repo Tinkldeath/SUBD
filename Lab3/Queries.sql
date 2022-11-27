@@ -48,19 +48,3 @@ UPDATE Playlist
     WHERE Title = "Custom playlist 4";
 DELETE FROM Playlist WHERE idPlaylist = 1;
 
--- ORDER BY
-SELECT Login FROM User ORDER BY Permission_idPermission desc;
-
--- MIN/MAX
-SELECT MIN(User_idUser) FROM Playlist;
-SELECT MAX(User_idUser) FROM Playlist;
-	
--- COUNT
-SELECT COUNT(Title) 
-	FROM Track_has_Genre
-	WHERE Genre_idGenre = 0;
-
--- LIKE
-SELECT COUNT(Title)
-	FROM Track
-    WHERE Title like "%o";
