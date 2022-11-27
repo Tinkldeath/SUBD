@@ -1,0 +1,6 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `updateGenre`(GENRE_ID INT, NEW_TITLE VARCHAR(45))
+BEGIN
+	UPDATE Genre 
+    SET Title = NEW_TITLE
+    WHERE idGenre = GENRE_ID;
+END

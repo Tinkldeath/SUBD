@@ -1,0 +1,6 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `updateTrack`(TRACK_ID INT, TITLE VARCHAR(45), AUDIO_URL VARCHAR(200), ALBUM_ID INT)
+BEGIN
+	UPDATE Track
+    SET Title = TITLE, AudioUrl = AUDIO_URL, Album_idAlbum = ALBUM_ID
+    WHERE idTrack = TRACK_ID;
+END

@@ -1,0 +1,6 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `updateAlbum`(ALBUM_ID INT, TITLE VARCHAR(45), IMAGE_URL VARCHAR(200), ARTIST_ID INT)
+BEGIN
+	UPDATE Album 
+    SET Title = TITLE, ImageUrl = IMAGE_URL, Artist_idArtist = ARTIST_ID
+    WHERE idAlbum = ALBUM_ID;
+END

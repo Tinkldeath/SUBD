@@ -1,0 +1,6 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `updatePlaylist`(PLAYLIST_ID INT, TITLE VARCHAR(45), IMAGE_URL VARCHAR(200))
+BEGIN
+	UPDATE Playlist
+    SET Title = TITLE, ImageUrl = IMAGE_URL
+    WHERE idPlaylist = PLAYLIST_ID;
+END

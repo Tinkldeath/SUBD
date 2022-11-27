@@ -1,0 +1,5 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `deleteUser`(USER_ID INT)
+BEGIN
+	DELETE FROM Users WHERE idUser = USER_ID;
+    DELETE FROM Playlist WHERE User_idUSER = USER_ID;
+END
