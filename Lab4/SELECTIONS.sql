@@ -104,5 +104,20 @@ FROM Track
     ON Track.idTrack = Track_has_Genre.Track_idTrack
     INNER JOIN Genre
     ON Track_has_Genre.Genre_idGenre = Genre.idGenre
-WHERE Genre.idGenre = 1 AND Track.Title LIKE "%al"
+WHERE Genre.idGenre = 1 AND Track.Title LIKE "%al";
 
+
+-- LEFT & RIGHT OUTER JOIN
+SELECT
+Track.Title as Track,
+Playlist.Title as Playlist
+FROM Playlist
+LEFT OUTER JOIN Playlist_has_Track ON Playlist_has_Track.Playlist_idPlaylist = Playlist.idPlaylist
+RIGHT OUTER JOIN Track On Playlist_has_Track.Track_idTrack = Track.idTrack;
+
+-- FULL JOIN
+SELECT
+*
+FROM Users
+FULL JOIN Permission ON permission = Permission.idPermission
+ORDER BY idUser;

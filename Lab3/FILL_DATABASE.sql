@@ -49,7 +49,7 @@ INSERT INTO Users (Login, PasswordValue, permission) VALUES("Admin", "admin", 3)
 
 -- FILL PLAYLISTS
 INSERT INTO Playlist (idPlaylist, Title, ImageUrl, User_idUser) VALUES(0, "Custom playlist 1", "", 1);
-INSERT INTO Playlist (idPlaylist, Title, ImageUrl, User_idUser) VALUES(1, "Custom playlist 2", "", 1);
+INSERT INTO Playlist (idPlaylist, Title, ImageUrl, User_idUser) VALUES("Custom playlist 2", "", 1);
 
 -- SETUP Relationships
 INSERT INTO Track_has_Genre (Track_idTrack, Genre_idGenre) VALUES (1, 1);
