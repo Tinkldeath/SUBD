@@ -1,0 +1,9 @@
+DROP TRIGGER IF EXISTS `musical_player`.`Genre_AFTER_DELETE`;
+
+DELIMITER $$
+USE `musical_player`$$
+CREATE DEFINER = CURRENT_USER TRIGGER `musical_player`.`Genre_AFTER_DELETE` AFTER DELETE ON `Genre` FOR EACH ROW
+BEGIN
+	CALL willDeleteGenre(OLD.idGenre);
+END$$
+DELIMITER ;

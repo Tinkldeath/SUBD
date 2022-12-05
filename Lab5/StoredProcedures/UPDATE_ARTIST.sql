@@ -1,6 +1,0 @@
-CREATE DEFINER=`root`@`localhost` PROCEDURE `updateArtist`(ARTIST_ID INT, NEW_NAME VARCHAR(45), IMAGE_URL VARCHAR(200))
-BEGIN
-	UPDATE Artist
-    SET Name = NEW_NAME, ImageUrl = IMAGE_URL
-    WHERE idArtist = ARTIST_ID;
-END

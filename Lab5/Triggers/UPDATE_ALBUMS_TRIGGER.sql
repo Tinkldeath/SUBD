@@ -1,0 +1,9 @@
+DROP TRIGGER IF EXISTS `musical_player`.`Album_AFTER_UPDATE`;
+
+DELIMITER $$
+USE `musical_player`$$
+CREATE DEFINER = CURRENT_USER TRIGGER `musical_player`.`Album_AFTER_UPDATE` AFTER UPDATE ON `Album` FOR EACH ROW
+BEGIN
+	CALL updateAlbumsView();
+END$$
+DELIMITER ;
