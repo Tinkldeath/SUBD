@@ -10,8 +10,8 @@ USE `musical_player`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `tracksForAlbum`(idAlbum INT)
 BEGIN
 	SELECT 
-    Track.Title as Track,
-    Artist.Name as Artist
+    Track.Title as title,
+    Artist.Name as artist
     FROM Track 
 		INNER JOIN Album_has_Track ON Album_has_Track.Track_idTrack = idTrack AND Album_has_Track.Album_idAlbum = idAlbum
         INNER JOIN Track_has_Artist ON Album_has_Track.Track_idTrack = Track_has_Artist.Track_idTrack
@@ -21,4 +21,3 @@ END$$
 
 DELIMITER ;
 ;
-

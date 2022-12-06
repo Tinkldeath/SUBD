@@ -10,6 +10,7 @@ USE `musical_player`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `willDeleteArtist`(idArtist INT)
 BEGIN
 	DELETE FROM Track_has_Artist WHERE Track_has_Artist.Artist_idArtist = idArtist;
+    DELETE FROM Artist WHERE Artist.idArtist = idArtist;
 END$$
 
 DELIMITER ;
