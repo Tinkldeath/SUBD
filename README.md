@@ -41,4 +41,7 @@
 ## Datalogical model:
 ![alt text](https://github.com/Tinkldeath/SUBD/blob/main/Lab1/Entities.png?raw=true)
 
+## REST API:
+[List of API urls](https://github.com/Tinkldeath/SUBD/blob/main/Lab6/WebService/urls.md)
+
 ## Dmitriy Mironchyk, 053503
