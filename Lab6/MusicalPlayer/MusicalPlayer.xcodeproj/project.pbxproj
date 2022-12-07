@@ -32,6 +32,9 @@
 		32C90277293B8FCB000EBA37 /* PlaylistsGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C90276293B8FCB000EBA37 /* PlaylistsGateway.swift */; };
 		32C90279293B9106000EBA37 /* UsersGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C90278293B9106000EBA37 /* UsersGateway.swift */; };
 		32C9027B293B9171000EBA37 /* GenreGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C9027A293B9171000EBA37 /* GenreGateway.swift */; };
+		32D078D629400C83005111D2 /* GatewayProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D078D529400C83005111D2 /* GatewayProtocol.swift */; };
+		32D078D929400C93005111D2 /* EntityProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D078D829400C93005111D2 /* EntityProtocol.swift */; };
+		32D078DB294010C2005111D2 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D078DA294010C2005111D2 /* Observable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +65,9 @@
 		32C90276293B8FCB000EBA37 /* PlaylistsGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistsGateway.swift; sourceTree = "<group>"; };
 		32C90278293B9106000EBA37 /* UsersGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersGateway.swift; sourceTree = "<group>"; };
 		32C9027A293B9171000EBA37 /* GenreGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreGateway.swift; sourceTree = "<group>"; };
+		32D078D529400C83005111D2 /* GatewayProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatewayProtocol.swift; sourceTree = "<group>"; };
+		32D078D829400C93005111D2 /* EntityProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityProtocol.swift; sourceTree = "<group>"; };
+		32D078DA294010C2005111D2 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +121,7 @@
 				32C9026A293B8BDE000EBA37 /* Playlist.swift */,
 				32C9026C293B8BED000EBA37 /* User.swift */,
 				32C9026E293B8C1F000EBA37 /* Genre.swift */,
+				32D078D829400C93005111D2 /* EntityProtocol.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -139,6 +146,7 @@
 				32C9025E293B87E7000EBA37 /* GenreViewController.swift */,
 				32C90260293B8808000EBA37 /* TracklistViewController.swift */,
 				32C90262293B881B000EBA37 /* ProfileViewController.swift */,
+				32D078DA294010C2005111D2 /* Observable.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -152,6 +160,7 @@
 				32C90276293B8FCB000EBA37 /* PlaylistsGateway.swift */,
 				32C90278293B9106000EBA37 /* UsersGateway.swift */,
 				32C9027A293B9171000EBA37 /* GenreGateway.swift */,
+				32D078D529400C83005111D2 /* GatewayProtocol.swift */,
 			);
 			path = Gateway;
 			sourceTree = "<group>";
@@ -234,12 +243,15 @@
 				32C90279293B9106000EBA37 /* UsersGateway.swift in Sources */,
 				32C90273293B8ECF000EBA37 /* ArtistsGateway.swift in Sources */,
 				32C9026B293B8BDE000EBA37 /* Playlist.swift in Sources */,
+				32D078D629400C83005111D2 /* GatewayProtocol.swift in Sources */,
 				32C9025D293B87D2000EBA37 /* SearchViewController.swift in Sources */,
 				32C90263293B881B000EBA37 /* ProfileViewController.swift in Sources */,
 				32C90277293B8FCB000EBA37 /* PlaylistsGateway.swift in Sources */,
+				32D078DB294010C2005111D2 /* Observable.swift in Sources */,
 				32C9023D293B7900000EBA37 /* AppDelegate.swift in Sources */,
 				32C9026F293B8C1F000EBA37 /* Genre.swift in Sources */,
 				32C9023F293B7900000EBA37 /* SceneDelegate.swift in Sources */,
+				32D078D929400C93005111D2 /* EntityProtocol.swift in Sources */,
 				32C9026D293B8BED000EBA37 /* User.swift in Sources */,
 				32C90267293B8B63000EBA37 /* Artist.swift in Sources */,
 				32C9025F293B87E7000EBA37 /* GenreViewController.swift in Sources */,
@@ -395,6 +407,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 97AF9CH96R;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MusicalPlayer/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Musical Player";
@@ -423,6 +436,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 97AF9CH96R;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MusicalPlayer/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Musical Player";

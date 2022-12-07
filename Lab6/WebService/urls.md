@@ -1,4 +1,4 @@
-# REST Python API (Musical player)
+# REST PHP API (Musical player)
 
 ## Track URLs:
 * GET (All tracks from db): http://localhost/musical-player/track/

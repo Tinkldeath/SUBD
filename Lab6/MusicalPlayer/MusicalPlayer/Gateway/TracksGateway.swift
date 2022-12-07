@@ -1,34 +1,45 @@
 import Foundation
+import UIKit
 
 
-struct TracksGateway {
-    var tracks: [Track]
+class TracksGateway: GatewayProtocol {
     
-    mutating func fetch() {
-        // TODO: Send http request
+    struct CodableTrack: Codable {
+        var id: Int
+        var title: String
+        var album: String
+        var artist: String
     }
     
-    func track(_ id: Int) -> Track? {
-        return self.tracks.first(where: { $0.id == id })
-    }
+    private(set) var entities: Observable<[EntityProtocol]> = Observable<[EntityProtocol]>(value: [])
+    private var aliUrl = (UIApplication.shared.delegate as! AppDelegate).apiUrl
     
-    mutating func addTrack(_ title: String, _ album: Album, _ artists: [Artist], _ genres: [Genre]) {
-        // TODO: Send http request
-        self.fetch()
-    }
     
-    mutating func updateTrack(_ id: Int, _ title: String, _ album: Album, _ artists: [Artist], _ genres: [Genre]) {
-        // TODO: Send http request
-        self.fetch()
-    }
-    
-    mutating func removeTrack(_ id: Int) {
-        // TODO: Send http request
-        self.fetch()
-    }
-    
-    func tracksByGenre(_ genre: Genre) -> [Track] {
-        return self.tracks.filter { $0.genres.contains(where: { genre.id == $0.id }) }
+    func fetch() async {
+        let url = URL(string: self.aliUrl + "/track")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        let session = URLSession.shared.dataTask(with: request) { data, _, error in
+            if let data = data {
+                do {
+                    let list = try JSONDecoder().decode([CodableTrack].self, from: data)
+                    var tracks = [Track]()
+                    for item in list {
+                        if tracks.contains(where: { $0.id == item.id }) {
+                            if let index = tracks.firstIndex(where: { $0.id == item.id }) {
+                                tracks[index].artists.append(item.artist)
+                            }
+                        }else {
+                            tracks.append(Track(id: item.id, title: item.title, album: item.album, artists: [item.artist]))
+                        }
+                    }
+                    self.entities.value = tracks
+                }catch {
+                    print(String(describing: error))
+                }
+            }
+        }
+        session.resume()
     }
     
 }

@@ -1,9 +1,9 @@
 import Foundation
 
 
-struct User {
-    var id: Int
-    var login: String
-    var password: String
-    var permission: Int
+struct User: Codable {
+    var idUser: Int
+    var Login: String
+    var Password: String
+    var Permission: Int
 }

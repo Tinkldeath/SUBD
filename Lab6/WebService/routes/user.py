@@ -7,7 +7,7 @@ from flask import flash, request
 
 @app.route('/user/add', methods=['POST'])
 def create_user():
-    # POST: http://127.0.0.1:5000/user/add
+    # POST: http://localhost/user/add
     # BODY: {"login": "asdas", "password": "asdasdsa", "permission": 1}
     try:
         _json = request.json
@@ -44,14 +44,14 @@ def create_user():
 def login():
     # POST: http://127.0.0.1:5000/user/login
     # BODY: {"login": "asdas", "password": "asdasdsa"}
+    conn = mysql.connect()
+    cursor = conn.cursor(pymysql.cursors.DictCursor)
     try:
         _json = request.json
         _login = _json['login']
         _password = _json['password']
-        conn = mysql.connect()
-        cursor = conn.cursor(pymysql.cursors.DictCursor)
         if _login and _password and request.method == 'POST':
-            findUser = "SELECT Login, Password, Permission FROM User WHERE Login = %s;"
+            findUser = "SELECT * FROM User WHERE Login = %s;"
             bindFind = (_login)
             cursor.execute(findUser, bindFind)
             found = cursor.fetchone()

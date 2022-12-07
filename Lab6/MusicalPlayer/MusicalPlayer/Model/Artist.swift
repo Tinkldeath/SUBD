@@ -1,10 +1,13 @@
 import Foundation
 
 
-struct Artist {
+struct Artist: EntityProtocol {
     var id: Int
     var name: String
-    var tracks: [Track]
-    var albums: [Album]
-    var genres: [Genre]
+    var albums: Int
+    var tracks: Int
+    
+    func cellConfiguration() -> (title: String, details: String) {
+        return(self.name, "Albums: \(self.albums)")
+    }
 }
