@@ -42,4 +42,9 @@ class TracksGateway: GatewayProtocol {
         session.resume()
     }
     
+    
+    func associatedImage() -> UIImage {
+        return UIImage(systemName: "music.note")!
+    }
+    
 }

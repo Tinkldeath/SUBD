@@ -24,4 +24,8 @@ class ArtistsGateway: GatewayProtocol {
         session.resume()
     }
     
+    func associatedImage() -> UIImage {
+        return UIImage(systemName: "music.mic")!
+    }
+    
 }

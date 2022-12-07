@@ -24,4 +24,8 @@ class GenresGateway: GatewayProtocol {
         session.resume()
     }
     
+    func associatedImage() -> UIImage {
+        return UIImage(systemName: "star")!
+    }
+    
 }

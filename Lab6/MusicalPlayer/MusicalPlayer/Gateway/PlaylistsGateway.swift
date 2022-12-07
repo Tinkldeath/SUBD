@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 
 
 class PlaylistsGateway: GatewayProtocol {
@@ -7,6 +8,10 @@ class PlaylistsGateway: GatewayProtocol {
     
     func fetch() {
         // TODO: Send http request
+    }
+    
+    func associatedImage() -> UIImage {
+        return UIImage(systemName: "music.note.list")!
     }
     
 }

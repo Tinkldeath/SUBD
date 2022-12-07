@@ -5,10 +5,12 @@ class PlayerCell: UITableViewCell {
     
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var details: UILabel!
+    @IBOutlet weak var associatedImage: UIImageView!
     
-    func setup(_ title: String, _ details: String) {
+    func setup(_ title: String, _ details: String, _ image: UIImage) {
         self.title.text = title
         self.details.text = details
+        self.associatedImage.image = image
     }
     
 }
@@ -71,7 +73,7 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PlayerCell", for: indexPath) as! PlayerCell
         let config = self.current.entities.value[indexPath.row].cellConfiguration()
-        cell.setup(config.title, config.details)
+        cell.setup(config.title, config.details, self.current.associatedImage())
         return cell
     }
     

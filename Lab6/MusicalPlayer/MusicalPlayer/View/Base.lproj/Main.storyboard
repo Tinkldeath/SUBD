@@ -224,6 +224,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="associatedImage" destination="75G-X5-8xO" id="94e-qS-bUK"/>
                                             <outlet property="details" destination="efc-9d-UZI" id="Ld6-en-fOM"/>
                                             <outlet property="title" destination="NSk-3p-mpY" id="8GR-0b-TcO"/>
                                         </connections>
