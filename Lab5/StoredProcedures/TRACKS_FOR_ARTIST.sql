@@ -11,11 +11,17 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `tracksForArtist`(idArtist INT)
 BEGIN
 	SELECT 
     Track.idTrack as id,
-    Track.Title as title,
-    Artist.Name as artist
-    FROM Artist
-        INNER JOIN Track_has_Artist ON Track_has_Artist.Artist_idArtist = idArtist
-        INNER JOIN Track ON Track_has_Artist.Track_idTrack = idTrack
+	Track.Title as title, 
+	Album.Title as album, 
+	Artist.Name as artist
+		FROM Track
+		INNER JOIN Album_has_Track
+		ON idTrack = Album_has_Track.Track_idTrack
+		INNER JOIN Album
+		ON idAlbum = Album_has_Track.Album_idAlbum
+        INNER JOIN Track_has_Artist ON Track_has_Artist.Track_idTrack = idTrack
+		INNER JOIN Artist
+		ON Track_has_Artist.Artist_idArtist = Artist.idArtist
 	WHERE Artist.idArtist = idArtist
 	ORDER BY Track.idTrack;
 END$$

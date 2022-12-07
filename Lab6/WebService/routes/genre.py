@@ -158,3 +158,43 @@ def delete_genre(id):
     finally:
         cursor.close()
         conn.close()
+
+
+@app.route('/genre/<id>/track/<id_track>', methods=['PUT'])
+def add_genre_track(id, id_track):
+    # PUT: http://127.0.0.1:5000/genre/1/track/1
+    conn = mysql.connect()
+    cursor = conn.cursor(pymysql.cursors.DictCursor)
+    try:
+        if request.method == 'PUT':
+            results = "CALL willAddGenreToTrack(%s, %s);"
+            binData = (id_track, id)
+            cursor.execute(results, binData)
+            response.status_code = 200
+            conn.commit()
+            return response
+    except Exception as e:
+        print(e)
+    finally:
+        cursor.close()
+        conn.close()
+
+
+@app.route('/genre/<id>/track/<id_track>', methods=['DELETE'])
+def delete_genre_track(id, id_track):
+    # DELETE: http://127.0.0.1:5000/genre/1/track/1
+    conn = mysql.connect()
+    cursor = conn.cursor(pymysql.cursors.DictCursor)
+    try:
+        if request.method == 'DELETE':
+            results = "CALL willDeleteGenreFromTrack(%s, %s);"
+            binData = (id_track, id)
+            cursor.execute(results, binData)
+            response.status_code = 200
+            conn.commit()
+            return response
+    except Exception as e:
+        print(e)
+    finally:
+        cursor.close()
+        conn.close()
