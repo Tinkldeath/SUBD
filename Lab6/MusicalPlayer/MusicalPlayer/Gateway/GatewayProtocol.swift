@@ -7,4 +7,5 @@ protocol GatewayProtocol {
     
     func fetch() async
     func associatedImage() -> UIImage
+    func entityForIndexPath(_ indexPath: IndexPath) -> EntityProtocol
 }

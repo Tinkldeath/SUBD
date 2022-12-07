@@ -35,6 +35,8 @@
 		32D078D629400C83005111D2 /* GatewayProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D078D529400C83005111D2 /* GatewayProtocol.swift */; };
 		32D078D929400C93005111D2 /* EntityProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D078D829400C93005111D2 /* EntityProtocol.swift */; };
 		32D078DB294010C2005111D2 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D078DA294010C2005111D2 /* Observable.swift */; };
+		32EA24F02940D3A900EF0F7A /* PlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EA24EE2940D3A900EF0F7A /* PlayerCell.swift */; };
+		32EA24F12940D3A900EF0F7A /* PlayerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32EA24EF2940D3A900EF0F7A /* PlayerCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +70,8 @@
 		32D078D529400C83005111D2 /* GatewayProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatewayProtocol.swift; sourceTree = "<group>"; };
 		32D078D829400C93005111D2 /* EntityProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityProtocol.swift; sourceTree = "<group>"; };
 		32D078DA294010C2005111D2 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		32EA24EE2940D3A900EF0F7A /* PlayerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCell.swift; sourceTree = "<group>"; };
+		32EA24EF2940D3A900EF0F7A /* PlayerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +135,8 @@
 			children = (
 				32C90242293B7900000EBA37 /* Main.storyboard */,
 				32C90247293B7902000EBA37 /* LaunchScreen.storyboard */,
+				32EA24EE2940D3A900EF0F7A /* PlayerCell.swift */,
+				32EA24EF2940D3A900EF0F7A /* PlayerCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -223,6 +229,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32EA24F12940D3A900EF0F7A /* PlayerCell.xib in Resources */,
 				32C90249293B7902000EBA37 /* LaunchScreen.storyboard in Resources */,
 				32C90246293B7902000EBA37 /* Assets.xcassets in Resources */,
 				32C90244293B7900000EBA37 /* Main.storyboard in Resources */,
@@ -248,6 +255,7 @@
 				32C90263293B881B000EBA37 /* ProfileViewController.swift in Sources */,
 				32C90277293B8FCB000EBA37 /* PlaylistsGateway.swift in Sources */,
 				32D078DB294010C2005111D2 /* Observable.swift in Sources */,
+				32EA24F02940D3A900EF0F7A /* PlayerCell.swift in Sources */,
 				32C9023D293B7900000EBA37 /* AppDelegate.swift in Sources */,
 				32C9026F293B8C1F000EBA37 /* Genre.swift in Sources */,
 				32C9023F293B7900000EBA37 /* SceneDelegate.swift in Sources */,

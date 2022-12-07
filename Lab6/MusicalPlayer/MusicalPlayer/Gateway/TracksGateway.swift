@@ -42,9 +42,12 @@ class TracksGateway: GatewayProtocol {
         session.resume()
     }
     
-    
     func associatedImage() -> UIImage {
         return UIImage(systemName: "music.note")!
+    }
+    
+    func entityForIndexPath(_ indexPath: IndexPath) -> EntityProtocol {
+        return self.entities.value[indexPath.row]
     }
     
 }

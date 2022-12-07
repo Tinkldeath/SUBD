@@ -5,7 +5,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    private let usersGateway = UsersGateway()
+    private let usersGateway = UsersGateway.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +38,13 @@ class LoginViewController: UIViewController {
             let ac = UIAlertController(title: "Error!", message: "\(error)", preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "OK", style: .default))
             self?.present(ac, animated: true)
+        }
+    }
+    
+    
+    @IBAction func signUpClicked(_ sender: Any) {
+        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "RegisterViewController") {
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
     

@@ -24,8 +24,59 @@ class ArtistsGateway: GatewayProtocol {
         session.resume()
     }
     
+    func fetchArtistTracks(_ id: Int, _ completionHandler: @escaping (_ tracks: [Track]) -> Void) async {
+        let url = URL(string: self.aliUrl + "/artist/tracks/\(id)")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        let session = URLSession.shared.dataTask(with: request) { data, _, error in
+            var tracks = [Track]()
+            if let data = data {
+                do {
+                    let list = try JSONDecoder().decode([TracksGateway.CodableTrack].self, from: data)
+                    for item in list {
+                        if tracks.contains(where: { $0.id == item.id }) {
+                            if let index = tracks.firstIndex(where: { $0.id == item.id }) {
+                                tracks[index].artists.append(item.artist)
+                            }
+                        }else {
+                            tracks.append(Track(id: item.id, title: item.title, album: item.album, artists: [item.artist]))
+                        }
+                    }
+                    completionHandler(tracks)
+                }catch {
+                    print(String(describing: error))
+                }
+            }
+            completionHandler(tracks)
+        }
+        session.resume()
+    }
+    
+    func fetchArtistAlbums(_ id: Int, _ completionHandler: @escaping (_ albums: [Album]) -> Void) async {
+        let url = URL(string: self.aliUrl + "/artist/albums/\(id)")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        let session = URLSession.shared.dataTask(with: request) { data, _, error in
+            if let data = data {
+                do {
+                    let list = try JSONDecoder().decode([Album].self, from: data)
+                    completionHandler(list.map({ $0 }))
+                    return
+                }catch {
+                    print(String(describing: error))
+                }
+            }
+            completionHandler([])
+        }
+        session.resume()
+    }
+    
     func associatedImage() -> UIImage {
         return UIImage(systemName: "music.mic")!
+    }
+    
+    func entityForIndexPath(_ indexPath: IndexPath) -> EntityProtocol {
+        return self.entities.value[indexPath.row]
     }
     
 }
