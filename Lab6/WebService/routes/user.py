@@ -9,13 +9,13 @@ from flask import flash, request
 def create_user():
     # POST: http://localhost/user/add
     # BODY: {"login": "asdas", "password": "asdasdsa", "permission": 1}
+    conn = mysql.connect()
+    cursor = conn.cursor(pymysql.cursors.DictCursor)
     try:
         _json = request.json
         _login = _json['login']
         _password = _json['password']
         _permission = _json['permission']
-        conn = mysql.connect()
-        cursor = conn.cursor(pymysql.cursors.DictCursor)
         if _login and _password and _permission and request.method == 'POST':
             exists = "SELECT Login FROM User WHERE Login = %s;"
             bindExists = (_login)

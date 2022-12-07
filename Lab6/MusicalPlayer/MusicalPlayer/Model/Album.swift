@@ -1,7 +1,7 @@
 import Foundation
 
 
-struct Album: EntityProtocol {
+struct Album: EntityProtocol, Codable {
     var id: Int
     var title: String
     var artist: String

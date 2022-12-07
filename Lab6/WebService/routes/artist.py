@@ -9,11 +9,11 @@ from flask import request
 def add_artist():
     # POST: http://127.0.0.1:5000/artist/add
     # BODY: {"name": "asdas"}
+    conn = mysql.connect()
+    cursor = conn.cursor(pymysql.cursors.DictCursor)
     try:
         _json = request.json
         _name = _json['name']
-        conn = mysql.connect()
-        cursor = conn.cursor(pymysql.cursors.DictCursor)
         if _name and request.method == 'POST':
             sqlQuery = "CALL willCreateArtist(%s);"
             cursor.execute(sqlQuery, _name)
@@ -34,9 +34,9 @@ def add_artist():
 @app.route('/artist', methods=['GET'])
 def get_artists():
     # GET: http://127.0.0.1:5000/artist
+    conn = mysql.connect()
+    cursor = conn.cursor(pymysql.cursors.DictCursor)
     try:
-        conn = mysql.connect()
-        cursor = conn.cursor(pymysql.cursors.DictCursor)
         if request.method == 'GET':
             results = "CALL getArtists();"
             cursor.execute(results)
@@ -55,9 +55,9 @@ def get_artists():
 @app.route('/artist/tracks/<id>', methods=['GET'])
 def get_artist_tracks(id):
     # GET: http://127.0.0.1:5000/artist/tracks/1
+    conn = mysql.connect()
+    cursor = conn.cursor(pymysql.cursors.DictCursor)
     try:
-        conn = mysql.connect()
-        cursor = conn.cursor(pymysql.cursors.DictCursor)
         if request.method == 'GET':
             results = "CALL tracksForArtist(%s);"
             cursor.execute(results, id)
@@ -76,9 +76,9 @@ def get_artist_tracks(id):
 @app.route('/artist/albums/<id>', methods=['GET'])
 def get_artist_albums(id):
     # GET: http://127.0.0.1:5000/artist/albums/1
+    conn = mysql.connect()
+    cursor = conn.cursor(pymysql.cursors.DictCursor)
     try:
-        conn = mysql.connect()
-        cursor = conn.cursor(pymysql.cursors.DictCursor)
         if request.method == 'GET':
             results = "CALL albumsForArtist(%s);"
             cursor.execute(results, id)
@@ -98,11 +98,11 @@ def get_artist_albums(id):
 def update_artist(id):
     # PUT: http://127.0.0.1:5000/artist/1
     # BODY: {"name": "asdas"}
+    conn = mysql.connect()
+    cursor = conn.cursor(pymysql.cursors.DictCursor)
     try:
         _json = request.json
         _name = _json['name']
-        conn = mysql.connect()
-        cursor = conn.cursor(pymysql.cursors.DictCursor)
         if request.method == 'PUT':
             results = "CALL willUpdateArtist(%s, %s);"
             binData = (id, _name)
@@ -122,9 +122,9 @@ def update_artist(id):
 @app.route('/artist/<id>', methods=['DELETE'])
 def delete_artist(id):
     # DELETE: http://127.0.0.1:5000/artist/1
+    conn = mysql.connect()
+    cursor = conn.cursor(pymysql.cursors.DictCursor)
     try:
-        conn = mysql.connect()
-        cursor = conn.cursor(pymysql.cursors.DictCursor)
         if request.method == 'DELETE':
             results = "CALL willDeleteArtist(%s);"
             cursor.execute(results, id)

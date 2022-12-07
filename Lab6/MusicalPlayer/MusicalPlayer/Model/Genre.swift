@@ -1,7 +1,7 @@
 import Foundation
 
 
-struct Genre: EntityProtocol {
+struct Genre: EntityProtocol, Codable {
     var id: Int
     var albums: Int
     var artists: Int
@@ -9,6 +9,6 @@ struct Genre: EntityProtocol {
     var tracks: Int
     
     func cellConfiguration() -> (title: String, details: String) {
-        return (self.title + " Tracks: \(self.tracks)", "Artists: \(self.artists), Albums: \(self.albums)")
+        return (self.title + ", Tracks: \(self.tracks)", "Artists: \(self.artists), Albums: \(self.albums)")
     }
 }

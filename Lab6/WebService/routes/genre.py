@@ -8,9 +8,9 @@ from flask import request
 @app.route('/genre', methods=['GET'])
 def get_genres():
     # GET: http://127.0.0.1:5000/genre
+    conn = mysql.connect()
+    cursor = conn.cursor(pymysql.cursors.DictCursor)
     try:
-        conn = mysql.connect()
-        cursor = conn.cursor(pymysql.cursors.DictCursor)
         if request.method == 'GET':
             results = "CALL getGenres();"
             cursor.execute(results)
@@ -29,9 +29,9 @@ def get_genres():
 @app.route('/genre/tracks/<id>', methods=['GET'])
 def get_tracks_for_genre(id):
     # GET: http://127.0.0.1:5000/genre/tracks/1
+    conn = mysql.connect()
+    cursor = conn.cursor(pymysql.cursors.DictCursor)
     try:
-        conn = mysql.connect()
-        cursor = conn.cursor(pymysql.cursors.DictCursor)
         if request.method == 'GET':
             results = "CALL tracksForGenre(%s);"
             cursor.execute(results, id)
@@ -50,9 +50,9 @@ def get_tracks_for_genre(id):
 @app.route('/genre/artists/<id>', methods=['GET'])
 def get_artists_for_genre(id):
     # GET: http://127.0.0.1:5000/genre/artists/1
+    conn = mysql.connect()
+    cursor = conn.cursor(pymysql.cursors.DictCursor)
     try:
-        conn = mysql.connect()
-        cursor = conn.cursor(pymysql.cursors.DictCursor)
         if request.method == 'GET':
             results = "CALL artistsForGenre(%s);"
             cursor.execute(results, id)
@@ -71,9 +71,9 @@ def get_artists_for_genre(id):
 @app.route('/genre/albums/<id>', methods=['GET'])
 def get_albums_for_genre(id):
     # GET: http://127.0.0.1:5000/genre/albums/1
+    conn = mysql.connect()
+    cursor = conn.cursor(pymysql.cursors.DictCursor)
     try:
-        conn = mysql.connect()
-        cursor = conn.cursor(pymysql.cursors.DictCursor)
         if request.method == 'GET':
             results = "CALL albumsForGenre(%s);"
             cursor.execute(results, id)
@@ -94,11 +94,11 @@ def get_albums_for_genre(id):
 def add_genre():
     # POST: http://127.0.0.1:5000/genre/add
     # BODY: {"title": "asdasdasd"}
+    conn = mysql.connect()
+    cursor = conn.cursor(pymysql.cursors.DictCursor)
     try:
         _json = request.json
         _title = _json['title']
-        conn = mysql.connect()
-        cursor = conn.cursor(pymysql.cursors.DictCursor)
         if _title and request.method == 'POST':
             query = "CALL willCreateGenre(%s)"
             cursor.execute(query, _title)
@@ -118,11 +118,11 @@ def add_genre():
 def update_genre(id):
     # PUT: http://127.0.0.1:5000/genre/1
     # BODY: {"title": "asdasdasd"}
+    conn = mysql.connect()
+    cursor = conn.cursor(pymysql.cursors.DictCursor)
     try:
         _json = request.json
         _title = _json['title']
-        conn = mysql.connect()
-        cursor = conn.cursor(pymysql.cursors.DictCursor)
         if _title and request.method == 'PUT':
             results = "CALL willUpdateGenre(%s, %s);"
             binData = (id, _title)
@@ -142,9 +142,9 @@ def update_genre(id):
 @app.route('/genre/<id>', methods=['DELETE'])
 def delete_genre(id):
     # DELETE: http://127.0.0.1:5000/genre/1
+    conn = mysql.connect()
+    cursor = conn.cursor(pymysql.cursors.DictCursor)
     try:
-        conn = mysql.connect()
-        cursor = conn.cursor(pymysql.cursors.DictCursor)
         if request.method == 'DELETE':
             results = "CALL willDeleteGenre(%s);"
             cursor.execute(results, id)

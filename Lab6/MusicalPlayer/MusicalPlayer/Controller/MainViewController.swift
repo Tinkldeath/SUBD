@@ -19,7 +19,10 @@ class MainViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     private var gateways: [Int: GatewayProtocol] = [
-        0: TracksGateway()
+        0: TracksGateway(),
+        1: ArtistsGateway(),
+        2: AlbumsGateway(),
+        4: GenresGateway()
     ]
     
     private var current: GatewayProtocol!
@@ -38,6 +41,20 @@ class MainViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func selectionDidChange(_ sender: Any) {
+        guard let current = self.gateways[self.entitySegment.selectedSegmentIndex] else { return }
+        self.current = current
+        Task { [weak self] in
+            await self?.current.fetch()
+            self?.current.entities.bind({ _ in
+                Task {
+                    self?.tableView.reloadData()
+                }
+            })
+        }
+    }
+    
 
 }
 

@@ -9,12 +9,12 @@ from flask import request
 def create_album():
     # POST: http://127.0.0.1:5000/album/add
     # BODY: {"title": "asdas", "idArtist": 1}
+    conn = mysql.connect()
+    cursor = conn.cursor(pymysql.cursors.DictCursor)
     try:
         _json = request.json
         _title = _json['title']
         _idArtist = _json['idArtist']
-        conn = mysql.connect()
-        cursor = conn.cursor(pymysql.cursors.DictCursor)
         if _title and _idArtist and request.method == 'POST':
             sqlQuery = "CALL checkAlbumExists(%s, %s);"
             bindData = (_title, _idArtist)
@@ -44,9 +44,9 @@ def create_album():
 @app.route('/album', methods=['GET'])
 def get_albums():
     # GET: http://127.0.0.1:5000/album/
+    conn = mysql.connect()
+    cursor = conn.cursor(pymysql.cursors.DictCursor)
     try:
-        conn = mysql.connect()
-        cursor = conn.cursor(pymysql.cursors.DictCursor)
         sqlQuery = "CALL getAlbums();"
         cursor.execute(sqlQuery)
         results = cursor.fetchall()
@@ -65,9 +65,9 @@ def get_albums():
 @app.route('/album/<id>', methods=['GET'])
 def get_album(id):
     # GET: http://127.0.0.1:5000/album/1
+    conn = mysql.connect()
+    cursor = conn.cursor(pymysql.cursors.DictCursor)
     try:
-        conn = mysql.connect()
-        cursor = conn.cursor(pymysql.cursors.DictCursor)
         sqlQuery = "CALL tracksForAlbum(%s);"
         cursor.execute(sqlQuery, id)
         results = cursor.fetchall()
@@ -86,12 +86,12 @@ def get_album(id):
 def update_album(id):
     # PUT: http://127.0.0.1:5000/album/1
     # BODY: {"title": "asdas", "idArtist": 1}
+    conn = mysql.connect()
+    cursor = conn.cursor(pymysql.cursors.DictCursor)
     try:
         _json = request.json
         _title = _json['title']
         _idArtist = _json['idArtist']
-        conn = mysql.connect()
-        cursor = conn.cursor(pymysql.cursors.DictCursor)
         if _title and _idArtist and request.method == 'PUT':
             sqlQuery = "CALL willUpdateAlbum(%s, %s, %s);"
             bindData = (id, _title, _idArtist)
@@ -113,9 +113,9 @@ def update_album(id):
 @app.route('/album/<id>', methods=['DELETE'])
 def delete_album(id):
     # DELETE: http://127.0.0.1:5000/album/1
+    conn = mysql.connect()
+    cursor = conn.cursor(pymysql.cursors.DictCursor)
     try:
-        conn = mysql.connect()
-        cursor = conn.cursor(pymysql.cursors.DictCursor)
         sqlQuery = "CALL willDeleteAlbum(%s);"
         cursor.execute(sqlQuery, id)
         results = "CALL getAlbums();"

@@ -176,7 +176,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="oeX-jj-lzG">
-                                <rect key="frame" x="0.0" y="122" width="390" height="688"/>
+                                <rect key="frame" x="0.0" y="122" width="390" height="633"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PlayerCell" rowHeight="74" id="jhn-BR-YbQ" customClass="PlayerCell" customModule="MusicalPlayer" customModuleProvider="target">
@@ -239,17 +239,31 @@
                                     <segment title="Playlists"/>
                                     <segment title="Genres"/>
                                 </segments>
+                                <connections>
+                                    <action selector="selectionDidChange:" destination="nxw-33-AKi" eventType="valueChanged" id="MnA-2S-dxJ"/>
+                                </connections>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GEt-ID-REM">
+                                <rect key="frame" x="177.66666666666666" y="765" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="kra-lo-yVE"/>
+                                    <constraint firstAttribute="width" constant="35" id="npp-Lr-2Gl"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="plus" catalog="system"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6fX-Ib-mhh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6fX-Ib-mhh" firstAttribute="trailing" secondItem="oeX-jj-lzG" secondAttribute="trailing" id="2vC-Tw-x18"/>
                             <constraint firstItem="oeX-jj-lzG" firstAttribute="leading" secondItem="6fX-Ib-mhh" secondAttribute="leading" id="3S3-Uk-dEM"/>
+                            <constraint firstItem="6fX-Ib-mhh" firstAttribute="bottom" secondItem="GEt-ID-REM" secondAttribute="bottom" constant="10" id="G7U-JI-Ajj"/>
                             <constraint firstItem="cBB-tD-2qQ" firstAttribute="top" secondItem="6fX-Ib-mhh" secondAttribute="top" id="Nd8-rF-4Pr"/>
+                            <constraint firstItem="GEt-ID-REM" firstAttribute="centerX" secondItem="YmF-jq-EQ9" secondAttribute="centerX" id="gHO-W6-LWC"/>
                             <constraint firstItem="cBB-tD-2qQ" firstAttribute="leading" secondItem="6fX-Ib-mhh" secondAttribute="leading" id="m7A-nl-RSP"/>
                             <constraint firstItem="6fX-Ib-mhh" firstAttribute="trailing" secondItem="cBB-tD-2qQ" secondAttribute="trailing" id="nKj-VU-24a"/>
-                            <constraint firstItem="6fX-Ib-mhh" firstAttribute="bottom" secondItem="oeX-jj-lzG" secondAttribute="bottom" id="uGy-57-77U"/>
+                            <constraint firstItem="GEt-ID-REM" firstAttribute="top" secondItem="oeX-jj-lzG" secondAttribute="bottom" constant="10" id="o0M-is-BYj"/>
                             <constraint firstItem="oeX-jj-lzG" firstAttribute="top" secondItem="cBB-tD-2qQ" secondAttribute="bottom" id="v8q-oH-dVc"/>
                         </constraints>
                     </view>
@@ -269,7 +283,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mCe-8n-x7e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2420.6106870229005" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="2420" y="2.8436018957345972"/>
         </scene>
         <!--Artist-->
         <scene sceneID="bKl-da-GOb">
@@ -295,7 +309,7 @@
                                 </segments>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Mxo-Mc-Y5Q">
-                                <rect key="frame" x="0.0" y="242" width="390" height="568"/>
+                                <rect key="frame" x="0.0" y="242" width="390" height="513"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PlayerCell" rowHeight="74" id="3QN-aH-g7R">
@@ -342,14 +356,25 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i43-eP-aRV">
+                                <rect key="frame" x="177.66666666666666" y="765" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="NL7-B3-7gl"/>
+                                    <constraint firstAttribute="height" constant="35" id="uAV-1e-4WG"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="plus" catalog="system"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="NXD-QP-OWQ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Qgi-f0-07V" firstAttribute="leading" secondItem="NXD-QP-OWQ" secondAttribute="leading" id="3XZ-QS-yJR"/>
+                            <constraint firstItem="NXD-QP-OWQ" firstAttribute="bottom" secondItem="i43-eP-aRV" secondAttribute="bottom" constant="10" id="4Wx-3H-a5l"/>
+                            <constraint firstItem="i43-eP-aRV" firstAttribute="centerX" secondItem="1HD-Ce-Bev" secondAttribute="centerX" id="Hdz-QR-tFa"/>
                             <constraint firstItem="Qgi-f0-07V" firstAttribute="top" secondItem="rMj-IA-sZn" secondAttribute="bottom" constant="10" id="Is3-wz-5DT"/>
                             <constraint firstItem="NXD-QP-OWQ" firstAttribute="trailing" secondItem="Mxo-Mc-Y5Q" secondAttribute="trailing" id="U8e-NS-42D"/>
-                            <constraint firstItem="NXD-QP-OWQ" firstAttribute="bottom" secondItem="Mxo-Mc-Y5Q" secondAttribute="bottom" id="a32-b2-P2c"/>
+                            <constraint firstItem="i43-eP-aRV" firstAttribute="top" secondItem="Mxo-Mc-Y5Q" secondAttribute="bottom" constant="10" id="drx-Hr-ggg"/>
                             <constraint firstItem="Mxo-Mc-Y5Q" firstAttribute="top" secondItem="Qgi-f0-07V" secondAttribute="bottom" id="gyA-Pq-LmD"/>
                             <constraint firstItem="NXD-QP-OWQ" firstAttribute="trailing" secondItem="Qgi-f0-07V" secondAttribute="trailing" id="j1v-pW-L91"/>
                             <constraint firstItem="rMj-IA-sZn" firstAttribute="top" secondItem="NXD-QP-OWQ" secondAttribute="top" constant="10" id="nBV-pi-1RR"/>
@@ -369,7 +394,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V2v-IZ-NY9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3154.9618320610684" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="3153.8461538461538" y="2.8436018957345972"/>
         </scene>
         <!--Profile-->
         <scene sceneID="3jr-XW-7PU">
@@ -497,7 +522,7 @@
                                 </buttonConfiguration>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="9f6-cM-8eb">
-                                <rect key="frame" x="0.0" y="256" width="390" height="554"/>
+                                <rect key="frame" x="0.0" y="256" width="390" height="499"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PlaylistCell" rowHeight="74" id="6PT-iG-L55">
@@ -543,14 +568,25 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L8r-sG-Bgi">
+                                <rect key="frame" x="177.66666666666666" y="765" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="Ekr-A0-TrP"/>
+                                    <constraint firstAttribute="width" constant="35" id="tb8-Gz-0oE"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="plus" catalog="system"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nUp-G5-Oh7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="nUp-G5-Oh7" firstAttribute="bottom" secondItem="L8r-sG-Bgi" secondAttribute="bottom" constant="10" id="6rC-mA-G6q"/>
                             <constraint firstItem="bSJ-u3-CUV" firstAttribute="centerX" secondItem="u1d-ZX-UG6" secondAttribute="centerX" id="AHS-sx-AsV"/>
-                            <constraint firstItem="nUp-G5-Oh7" firstAttribute="bottom" secondItem="9f6-cM-8eb" secondAttribute="bottom" id="DCq-PR-hqI"/>
+                            <constraint firstItem="L8r-sG-Bgi" firstAttribute="top" secondItem="9f6-cM-8eb" secondAttribute="bottom" constant="10" id="T3R-Ie-PeY"/>
                             <constraint firstItem="9g9-ps-3TI" firstAttribute="top" secondItem="nUp-G5-Oh7" secondAttribute="top" constant="10" id="VsF-LJ-Np8"/>
                             <constraint firstItem="9f6-cM-8eb" firstAttribute="top" secondItem="bSJ-u3-CUV" secondAttribute="bottom" constant="10" id="bMw-4C-NSx"/>
+                            <constraint firstItem="L8r-sG-Bgi" firstAttribute="centerX" secondItem="u1d-ZX-UG6" secondAttribute="centerX" id="bs3-e1-Epc"/>
                             <constraint firstItem="9g9-ps-3TI" firstAttribute="centerX" secondItem="u1d-ZX-UG6" secondAttribute="centerX" id="cqr-Qm-pOk"/>
                             <constraint firstItem="bSJ-u3-CUV" firstAttribute="top" secondItem="9g9-ps-3TI" secondAttribute="bottom" constant="10" id="e3I-aw-Yf3"/>
                             <constraint firstItem="9f6-cM-8eb" firstAttribute="leading" secondItem="nUp-G5-Oh7" secondAttribute="leading" id="sfd-3H-05J"/>
@@ -580,7 +616,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="fmX-qp-rBj">
-                                <rect key="frame" x="0.0" y="122" width="390" height="688"/>
+                                <rect key="frame" x="0.0" y="122" width="390" height="633"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PlayerCell" rowHeight="74" id="4lE-RS-9Bv">
@@ -635,17 +671,28 @@
                                     <segment title="Albums"/>
                                 </segments>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yrt-nv-RCW">
+                                <rect key="frame" x="177.66666666666666" y="765" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="RAt-xi-46r"/>
+                                    <constraint firstAttribute="height" constant="35" id="ZqO-U7-Ar7"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="plus" catalog="system"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="O5u-mY-Aoc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="fmX-qp-rBj" firstAttribute="leading" secondItem="O5u-mY-Aoc" secondAttribute="leading" id="AHh-eU-bZz"/>
+                            <constraint firstItem="O5u-mY-Aoc" firstAttribute="bottom" secondItem="yrt-nv-RCW" secondAttribute="bottom" constant="10" id="DDJ-gF-xTE"/>
                             <constraint firstItem="O5u-mY-Aoc" firstAttribute="trailing" secondItem="cki-ak-5ZD" secondAttribute="trailing" id="GHf-TT-QT7"/>
+                            <constraint firstItem="yrt-nv-RCW" firstAttribute="top" secondItem="fmX-qp-rBj" secondAttribute="bottom" constant="10" id="Ri3-Dm-HS5"/>
                             <constraint firstItem="cki-ak-5ZD" firstAttribute="leading" secondItem="O5u-mY-Aoc" secondAttribute="leading" id="aAr-kW-f8S"/>
                             <constraint firstItem="O5u-mY-Aoc" firstAttribute="trailing" secondItem="fmX-qp-rBj" secondAttribute="trailing" id="axc-8C-dj6"/>
-                            <constraint firstItem="O5u-mY-Aoc" firstAttribute="bottom" secondItem="fmX-qp-rBj" secondAttribute="bottom" id="jtz-mR-Toy"/>
                             <constraint firstItem="fmX-qp-rBj" firstAttribute="top" secondItem="cki-ak-5ZD" secondAttribute="bottom" id="rOl-y4-eCa"/>
                             <constraint firstItem="cki-ak-5ZD" firstAttribute="top" secondItem="O5u-mY-Aoc" secondAttribute="top" id="tKL-ka-Dli"/>
+                            <constraint firstItem="yrt-nv-RCW" firstAttribute="centerX" secondItem="Qvd-xY-Jua" secondAttribute="centerX" id="v4l-d0-yC7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Genre" id="3xZ-8D-9YY">
@@ -660,7 +707,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cIo-dG-gAT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2421" y="667"/>
+            <point key="canvasLocation" x="2420" y="666.82464454976298"/>
         </scene>
         <!--Search-->
         <scene sceneID="ayi-3k-aEQ">
@@ -784,6 +831,7 @@
         <image name="music.note" catalog="system" width="96" height="128"/>
         <image name="music.note.list" catalog="system" width="128" height="115"/>
         <image name="person.circle" catalog="system" width="128" height="123"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
