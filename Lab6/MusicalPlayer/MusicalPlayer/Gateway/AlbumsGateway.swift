@@ -52,6 +52,45 @@ class AlbumsGateway: GatewayProtocol {
         session.resume()
     }
     
+    func addAlbum(_ title: String, _ artistId: Int) {
+        struct Body: Encodable {
+            var title: String
+            var idArtist: Int
+        }
+        let url = URL(string: self.aliUrl + "/album/add")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = try! JSONEncoder().encode(Body(title: title, idArtist: artistId))
+        let session = URLSession.shared.dataTask(with: request)
+        session.resume()
+    }
+    
+    func update(_ id: Int, _ newValue: String) async {
+
+    }
+    
+    func delete(_ id: Int) async {
+        let url = URL(string: self.aliUrl + "/album/delete/\(id)")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+        request.allowsCellularAccess = true
+        request.allowsExpensiveNetworkAccess = true
+        request.allowsConstrainedNetworkAccess = true
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        let session = URLSession.shared.dataTask(with: request) { data, _, error in
+            if let data = data {
+                do {
+                    let list = try JSONDecoder().decode([Album].self, from: data)
+                    self.entities.value = list.map({ $0 })
+                }catch {
+                    print(String(describing: error))
+                }
+            }
+        }
+        session.resume()
+    }
+    
     func associatedImage() -> UIImage {
         return UIImage(systemName: "music.note.list")!
     }

@@ -9,6 +9,6 @@ struct Genre: EntityProtocol, Codable {
     var tracks: Int
     
     func cellConfiguration() -> (title: String, details: String) {
-        return (self.title + ", Tracks: \(self.tracks)", "Artists: \(self.artists), Albums: \(self.albums)")
+        return (self.title, "Artists: \(self.artists), Tracks: \(self.tracks)")
     }
 }

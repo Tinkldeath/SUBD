@@ -60,7 +60,7 @@ class GenresGateway: GatewayProtocol {
             if let data = data {
                 do {
                     let list = try JSONDecoder().decode([Album].self, from: data)
-                    completionHandler(list.map({ $0 }))
+                    completionHandler(list.map({ $0 }).filter({ $0.tracks > 0 }))
                 }catch {
                     print(String(describing: error))
                 }
@@ -77,7 +77,72 @@ class GenresGateway: GatewayProtocol {
             if let data = data {
                 do {
                     let list = try JSONDecoder().decode([Artist].self, from: data)
-                    completionHandler(list.map({ $0 }))
+                    completionHandler(list.map({ $0 }).filter({ $0.tracks > 0 }))
+                }catch {
+                    print(String(describing: error))
+                }
+            }
+        }
+        session.resume()
+    }
+    
+    func addGenre(_ title: String) {
+        struct Body: Encodable {
+            var title: String
+        }
+        let url = URL(string: self.aliUrl + "/genre/add")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.httpBody = try! JSONEncoder().encode(Body(title: title))
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        let session = URLSession.shared.dataTask(with: request) { data, _, error in
+            if let data = data {
+                do {
+                    let list = try JSONDecoder().decode([Genre].self, from: data)
+                    self.entities.value = list.map({ $0 })
+                }catch {
+                    print(String(describing: error))
+                }
+            }
+        }
+        session.resume()
+    }
+    
+    func update(_ id: Int, _ newValue: String) async {
+        struct Body: Encodable {
+            var title: String
+        }
+        let url = URL(string: self.aliUrl + "/genre/\(id)")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "PUT"
+        request.httpBody = try! JSONEncoder().encode(Body(title: newValue))
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        let session = URLSession.shared.dataTask(with: request) { data, _, error in
+            if let data = data {
+                do {
+                    let list = try JSONDecoder().decode([Genre].self, from: data)
+                    self.entities.value = list.map({ $0 })
+                }catch {
+                    print(String(describing: error))
+                }
+            }
+        }
+        session.resume()
+    }
+    
+    func delete(_ id: Int) async {
+        let url = URL(string: self.aliUrl + "/genre/\(id)")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+        request.allowsCellularAccess = true
+        request.allowsExpensiveNetworkAccess = true
+        request.allowsConstrainedNetworkAccess = true
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        let session = URLSession.shared.dataTask(with: request) { data, _, error in
+            if let data = data {
+                do {
+                    let list = try JSONDecoder().decode([Genre].self, from: data)
+                    self.entities.value = list.map({ $0 })
                 }catch {
                     print(String(describing: error))
                 }

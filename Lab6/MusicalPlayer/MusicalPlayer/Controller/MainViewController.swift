@@ -16,7 +16,7 @@ class MainViewController: UIViewController {
         4: GenresGateway()
     ]
     
-    private var current: GatewayProtocol!
+    private(set) var current: GatewayProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,7 +68,78 @@ class MainViewController: UIViewController {
         }
     }
     
-
+    @IBAction func addClicked(_ sender: Any) {
+        switch self.entitySegment.selectedSegmentIndex {
+        case 0:
+            Task { [weak self] in
+                if let vc = self?.storyboard?.instantiateViewController(withIdentifier: "AddTrackViewController") as? AddTrackViewController {
+                    let artists = ArtistsGateway()
+                    let albums = AlbumsGateway()
+                    let genres = GenresGateway()
+                    await artists.fetch()
+                    await albums.fetch()
+                    await genres.fetch()
+                    artists.entities.bind({ artists in
+                        vc.availableArtists = artists.map({ $0 as! Artist })
+                    })
+                    albums.entities.bind { albums in
+                        vc.availableAlbums = albums.map({ $0 as! Album })
+                    }
+                    genres.entities.bind { genres in
+                        vc.availableGenres = genres.map({ $0 as! Genre })
+                    }
+                    vc.main = self
+                    self?.present(vc, animated: true)
+                }
+            }
+        case 1:
+            Task { [weak self] in
+                let ac = UIAlertController(title: "Add artist", message: nil, preferredStyle: .alert)
+                ac.addTextField()
+                ac.addAction(UIAlertAction(title: "Add", style: .default, handler: { [weak self] _ in
+                    if let artistsGateway = self?.current as? ArtistsGateway {
+                        artistsGateway.addArtist(ac.textFields!.first!.text ?? "Unknown")
+                    }
+                }))
+                present(ac, animated: true)
+            }
+        case 2:
+            Task { [weak self] in
+                if let vc = self?.storyboard?.instantiateViewController(withIdentifier: "AddAlbumViewController") as? AddAlbumViewController {
+                    vc.mainVC = self
+                    self?.present(vc, animated: true)
+                }
+            }
+        case 3:
+            return
+        case 4:
+            Task { [weak self] in
+                let ac = UIAlertController(title: "Add genre", message: nil, preferredStyle: .alert)
+                ac.addTextField()
+                ac.addAction(UIAlertAction(title: "Add", style: .default, handler: { [weak self] _ in
+                    if let genresGateway = self?.current as? GenresGateway {
+                        genresGateway.addGenre(ac.textFields!.first!.text ?? "Unknown")
+                    }
+                }))
+                self?.present(ac, animated: true)
+            }
+        default:
+            return
+        }
+    }
+    
+    func update(_ indexPath: IndexPath, _ value: String) {
+        Task { [weak self] in
+            await self?.current.update(self?.current.entities.value[indexPath.row].id ?? -1, value)
+        }
+    }
+    
+    func delete(_ indexPath: IndexPath) {
+        Task { [weak self] in
+            await self?.current.delete(self?.current.entities.value[indexPath.row].id ?? -1)
+        }
+    }
+    
 }
 
 extension MainViewController: UITableViewDataSource {
@@ -129,6 +200,31 @@ extension MainViewController: UITableViewDelegate {
                 }
             }
         }
+    }
+    
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        if UsersGateway.shared.user!.Permission > 2 {
+            let config = UISwipeActionsConfiguration(actions: [UIContextualAction(style: .normal, title: "Edit", handler: { _, _, _ in
+                let ac = UIAlertController(title: "Update", message: nil, preferredStyle: .alert)
+                ac.addTextField()
+                ac.addAction(UIAlertAction(title: "Submit", style: .default, handler: { [weak self] _ in
+                    self?.update(indexPath, ac.textFields!.first!.text ?? "Unknown")
+                }))
+                self.present(ac, animated: true)
+            })])
+            return config
+        }
+        return nil
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        if UsersGateway.shared.user!.Permission > 2{
+            let config = UISwipeActionsConfiguration(actions: [UIContextualAction(style: .destructive, title: "Delete", handler: { [weak self] _, _, _ in
+                self?.delete(indexPath)
+            })])
+            return config
+        }
+        return nil
     }
     
 }

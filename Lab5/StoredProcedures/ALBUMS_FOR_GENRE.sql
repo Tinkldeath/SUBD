@@ -24,4 +24,3 @@ END$$
 
 DELIMITER ;
 ;
-

@@ -80,7 +80,11 @@ class TracklistViewController: UIViewController {
     @IBAction func backClicked(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
-
+    
+    @IBAction func addClicked(_ sender: Any) {
+        
+    }
+    
 }
 
 extension TracklistViewController: UITableViewDataSource {

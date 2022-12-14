@@ -51,6 +51,14 @@ class PlaylistsGateway: GatewayProtocol {
         session.resume()
     }
     
+    func update(_ id: Int, _ newValue: String) async {
+        
+    }
+    
+    func delete(_ id: Int) async {
+        
+    }
+    
     func associatedImage() -> UIImage {
         return UIImage(systemName: "music.note.list")!
     }

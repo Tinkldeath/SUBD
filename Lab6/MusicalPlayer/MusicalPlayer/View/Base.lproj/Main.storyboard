@@ -213,6 +213,9 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" image="plus" catalog="system"/>
+                                <connections>
+                                    <action selector="addClicked:" destination="nxw-33-AKi" eventType="touchUpInside" id="Rjw-Oz-YqC"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6fX-Ib-mhh"/>
@@ -463,6 +466,9 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" image="plus" catalog="system"/>
+                                <connections>
+                                    <action selector="addClicked:" destination="x6g-GI-ROl" eventType="touchUpInside" id="7AM-Bg-Ef0"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nUp-G5-Oh7"/>
@@ -501,6 +507,195 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ELz-mR-T7U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1690.7692307692307" y="666.82464454976298"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="FI1-wa-Q0a">
+            <objects>
+                <viewController storyboardIdentifier="AddTrackViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Yoo-jt-bCG" customClass="AddTrackViewController" customModule="MusicalPlayer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="j3j-CA-Jdr">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Track title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ejx-bG-gtA">
+                                <rect key="frame" x="20" y="57" width="350" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="llW-5S-Tkl">
+                                <rect key="frame" x="20" y="239.00000000000003" width="350" height="34.333333333333343"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34.333333333333314" id="4qL-oc-cGQ"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="music.mic" catalog="system" title="Artist">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="13"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="artistClicked:" destination="Yoo-jt-bCG" eventType="touchUpInside" id="WIK-WR-dlc"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Artists:" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0m-tM-DQe">
+                                <rect key="frame" x="20" y="101" width="350" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="NFl-i9-QF4"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Genres:" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gk5-cB-MTX">
+                                <rect key="frame" x="20" y="283.33333333333331" width="350" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="QkV-wZ-M1t"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BeI-U4-gzY">
+                                <rect key="frame" x="20" y="421.33333333333331" width="350" height="34.333333333333314"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34.333333333333371" id="SIm-LY-M3n"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="star" catalog="system" title="Genre">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="13"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="genreClicked:" destination="Yoo-jt-bCG" eventType="touchUpInside" id="goq-V3-4Ii"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IOl-XE-JaI">
+                                <rect key="frame" x="20" y="496.66666666666669" width="350" height="34.333333333333314"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34.333333333333371" id="wHB-lx-EMb"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="music.note.list" catalog="system" title="Album">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="13"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="albumClicked:" destination="Yoo-jt-bCG" eventType="touchUpInside" id="j2W-Cm-pEs"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Album:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4i3-ra-rR6">
+                                <rect key="frame" x="20" y="465.66666666666669" width="350" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sh8-Kt-oq6">
+                                <rect key="frame" x="170" y="541" width="50" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Xo4-Vw-LWM"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Add">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="13"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="addClicked:" destination="Yoo-jt-bCG" eventType="touchUpInside" id="5lZ-Uc-sxn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ukG-Mu-kye"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ukG-Mu-kye" firstAttribute="trailing" secondItem="Gk5-cB-MTX" secondAttribute="trailing" constant="20" id="4OG-1R-k2g"/>
+                            <constraint firstItem="4i3-ra-rR6" firstAttribute="leading" secondItem="ukG-Mu-kye" secondAttribute="leading" constant="20" id="6F5-Mo-7lB"/>
+                            <constraint firstItem="Ejx-bG-gtA" firstAttribute="leading" secondItem="ukG-Mu-kye" secondAttribute="leading" constant="20" id="7K6-vw-dId"/>
+                            <constraint firstItem="ukG-Mu-kye" firstAttribute="trailing" secondItem="llW-5S-Tkl" secondAttribute="trailing" constant="20" id="9wN-IJ-tjc"/>
+                            <constraint firstItem="Ejx-bG-gtA" firstAttribute="top" secondItem="ukG-Mu-kye" secondAttribute="top" constant="10" id="Boc-ol-Htj"/>
+                            <constraint firstItem="ukG-Mu-kye" firstAttribute="trailing" secondItem="IOl-XE-JaI" secondAttribute="trailing" constant="20" id="ENH-2Y-L0f"/>
+                            <constraint firstItem="Sh8-Kt-oq6" firstAttribute="centerX" secondItem="j3j-CA-Jdr" secondAttribute="centerX" id="GDL-xf-ME0"/>
+                            <constraint firstItem="IOl-XE-JaI" firstAttribute="leading" secondItem="ukG-Mu-kye" secondAttribute="leading" constant="20" id="Gjb-dO-oj5"/>
+                            <constraint firstItem="Gk5-cB-MTX" firstAttribute="leading" secondItem="ukG-Mu-kye" secondAttribute="leading" constant="20" id="HG2-Iz-uVO"/>
+                            <constraint firstItem="ukG-Mu-kye" firstAttribute="trailing" secondItem="u0m-tM-DQe" secondAttribute="trailing" constant="20" id="Mtt-ei-ggZ"/>
+                            <constraint firstItem="Sh8-Kt-oq6" firstAttribute="top" secondItem="IOl-XE-JaI" secondAttribute="bottom" constant="10" id="NBj-Nc-vWA"/>
+                            <constraint firstItem="4i3-ra-rR6" firstAttribute="top" secondItem="BeI-U4-gzY" secondAttribute="bottom" constant="10" id="Syz-PK-StE"/>
+                            <constraint firstItem="BeI-U4-gzY" firstAttribute="leading" secondItem="ukG-Mu-kye" secondAttribute="leading" constant="20" id="UQ6-KU-pMe"/>
+                            <constraint firstItem="u0m-tM-DQe" firstAttribute="top" secondItem="Ejx-bG-gtA" secondAttribute="bottom" constant="10" id="V8P-lS-qvY"/>
+                            <constraint firstItem="ukG-Mu-kye" firstAttribute="trailing" secondItem="Ejx-bG-gtA" secondAttribute="trailing" constant="20" id="Wii-Ss-2kc"/>
+                            <constraint firstItem="llW-5S-Tkl" firstAttribute="top" secondItem="u0m-tM-DQe" secondAttribute="bottom" constant="10" id="cgI-0W-mvs"/>
+                            <constraint firstItem="llW-5S-Tkl" firstAttribute="leading" secondItem="ukG-Mu-kye" secondAttribute="leading" constant="20" id="gIM-db-FS3"/>
+                            <constraint firstItem="u0m-tM-DQe" firstAttribute="leading" secondItem="ukG-Mu-kye" secondAttribute="leading" constant="20" id="gKM-hd-gPS"/>
+                            <constraint firstItem="ukG-Mu-kye" firstAttribute="trailing" secondItem="4i3-ra-rR6" secondAttribute="trailing" constant="20" id="hb7-xA-r3a"/>
+                            <constraint firstItem="ukG-Mu-kye" firstAttribute="trailing" secondItem="BeI-U4-gzY" secondAttribute="trailing" constant="20" id="kgw-zW-gWB"/>
+                            <constraint firstItem="IOl-XE-JaI" firstAttribute="top" secondItem="4i3-ra-rR6" secondAttribute="bottom" constant="10" id="kr0-4c-NFV"/>
+                            <constraint firstItem="BeI-U4-gzY" firstAttribute="top" secondItem="Gk5-cB-MTX" secondAttribute="bottom" constant="10" id="tg6-1I-mXb"/>
+                            <constraint firstItem="Gk5-cB-MTX" firstAttribute="top" secondItem="llW-5S-Tkl" secondAttribute="bottom" constant="10" id="zrO-2A-lqA"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="76o-CJ-N6e"/>
+                    <connections>
+                        <outlet property="albumLabel" destination="4i3-ra-rR6" id="Mbb-WP-o7n"/>
+                        <outlet property="artistsTextView" destination="u0m-tM-DQe" id="bYx-2S-HQa"/>
+                        <outlet property="genresTextView" destination="Gk5-cB-MTX" id="2LC-y4-0dC"/>
+                        <outlet property="titleTextField" destination="Ejx-bG-gtA" id="yLt-rq-EsE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2HY-lf-mbZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1690.7692307692307" y="1338.6255924170616"/>
+        </scene>
+        <!--Add Album View Controller-->
+        <scene sceneID="Y6g-Vd-bxI">
+            <objects>
+                <viewController storyboardIdentifier="AddAlbumViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rrc-g3-SVI" customClass="AddAlbumViewController" customModule="MusicalPlayer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TGd-KL-qU7">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Album title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OXb-OP-VA2">
+                                <rect key="frame" x="20" y="350.66666666666669" width="350" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W0a-k6-C9D">
+                                <rect key="frame" x="20" y="404.66666666666669" width="350" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="music.mic" catalog="system" title="Artist">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="13"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="artistClicked:" destination="rrc-g3-SVI" eventType="touchUpInside" id="jYe-4i-u4Y"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fnG-2Z-70h">
+                                <rect key="frame" x="170" y="459.66666666666669" width="50" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Add">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="13"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="addClicked:" destination="rrc-g3-SVI" eventType="touchUpInside" id="QqM-Hr-et0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="TEH-et-Q80"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="W0a-k6-C9D" firstAttribute="leading" secondItem="TEH-et-Q80" secondAttribute="leading" constant="20" id="Evl-hj-M1h"/>
+                            <constraint firstItem="fnG-2Z-70h" firstAttribute="top" secondItem="W0a-k6-C9D" secondAttribute="bottom" constant="20" id="Mla-cS-ay2"/>
+                            <constraint firstItem="W0a-k6-C9D" firstAttribute="centerY" secondItem="TGd-KL-qU7" secondAttribute="centerY" id="UBb-XS-iid"/>
+                            <constraint firstItem="TEH-et-Q80" firstAttribute="trailing" secondItem="W0a-k6-C9D" secondAttribute="trailing" constant="20" id="h10-uQ-mVC"/>
+                            <constraint firstItem="OXb-OP-VA2" firstAttribute="leading" secondItem="TEH-et-Q80" secondAttribute="leading" constant="20" id="hmu-3z-5f4"/>
+                            <constraint firstItem="W0a-k6-C9D" firstAttribute="top" secondItem="OXb-OP-VA2" secondAttribute="bottom" constant="20" id="kCL-fB-yvc"/>
+                            <constraint firstItem="TEH-et-Q80" firstAttribute="trailing" secondItem="OXb-OP-VA2" secondAttribute="trailing" constant="20" id="oLK-Yg-9KX"/>
+                            <constraint firstItem="fnG-2Z-70h" firstAttribute="centerX" secondItem="TGd-KL-qU7" secondAttribute="centerX" id="y9U-Ds-w0T"/>
+                            <constraint firstItem="W0a-k6-C9D" firstAttribute="centerX" secondItem="TGd-KL-qU7" secondAttribute="centerX" id="yu0-gz-KlU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="artistButton" destination="W0a-k6-C9D" id="qz1-Ff-LE5"/>
+                        <outlet property="titleTextField" destination="OXb-OP-VA2" id="jL0-2a-q0f"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="niN-Ks-a9U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2420" y="1339"/>
         </scene>
         <!--Genre-->
         <scene sceneID="44y-53-k3v">
@@ -649,6 +844,10 @@
         <image name="music.note.list" catalog="system" width="128" height="115"/>
         <image name="person.circle" catalog="system" width="128" height="123"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="star" catalog="system" width="128" height="116"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

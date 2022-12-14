@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32208A3C294A1667007DC3D0 /* AddAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32208A3B294A1667007DC3D0 /* AddAlbumViewController.swift */; };
 		32C9023D293B7900000EBA37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C9023C293B7900000EBA37 /* AppDelegate.swift */; };
 		32C9023F293B7900000EBA37 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C9023E293B7900000EBA37 /* SceneDelegate.swift */; };
 		32C90241293B7900000EBA37 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C90240293B7900000EBA37 /* LoginViewController.swift */; };
@@ -31,15 +32,17 @@
 		32C90275293B8F58000EBA37 /* AlbumsGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C90274293B8F58000EBA37 /* AlbumsGateway.swift */; };
 		32C90277293B8FCB000EBA37 /* PlaylistsGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C90276293B8FCB000EBA37 /* PlaylistsGateway.swift */; };
 		32C90279293B9106000EBA37 /* UsersGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C90278293B9106000EBA37 /* UsersGateway.swift */; };
-		32C9027B293B9171000EBA37 /* GenreGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C9027A293B9171000EBA37 /* GenreGateway.swift */; };
+		32C9027B293B9171000EBA37 /* GenresGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C9027A293B9171000EBA37 /* GenresGateway.swift */; };
 		32D078D629400C83005111D2 /* GatewayProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D078D529400C83005111D2 /* GatewayProtocol.swift */; };
 		32D078D929400C93005111D2 /* EntityProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D078D829400C93005111D2 /* EntityProtocol.swift */; };
 		32D078DB294010C2005111D2 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D078DA294010C2005111D2 /* Observable.swift */; };
 		32EA24F02940D3A900EF0F7A /* PlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EA24EE2940D3A900EF0F7A /* PlayerCell.swift */; };
 		32EA24F12940D3A900EF0F7A /* PlayerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32EA24EF2940D3A900EF0F7A /* PlayerCell.xib */; };
+		32EA24F32941087900EF0F7A /* AddTrackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EA24F22941087900EF0F7A /* AddTrackViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		32208A3B294A1667007DC3D0 /* AddAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlbumViewController.swift; sourceTree = "<group>"; };
 		32C90239293B7900000EBA37 /* MusicalPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicalPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32C9023C293B7900000EBA37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32C9023E293B7900000EBA37 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,12 +69,13 @@
 		32C90274293B8F58000EBA37 /* AlbumsGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsGateway.swift; sourceTree = "<group>"; };
 		32C90276293B8FCB000EBA37 /* PlaylistsGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistsGateway.swift; sourceTree = "<group>"; };
 		32C90278293B9106000EBA37 /* UsersGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersGateway.swift; sourceTree = "<group>"; };
-		32C9027A293B9171000EBA37 /* GenreGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreGateway.swift; sourceTree = "<group>"; };
+		32C9027A293B9171000EBA37 /* GenresGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresGateway.swift; sourceTree = "<group>"; };
 		32D078D529400C83005111D2 /* GatewayProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatewayProtocol.swift; sourceTree = "<group>"; };
 		32D078D829400C93005111D2 /* EntityProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityProtocol.swift; sourceTree = "<group>"; };
 		32D078DA294010C2005111D2 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		32EA24EE2940D3A900EF0F7A /* PlayerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCell.swift; sourceTree = "<group>"; };
 		32EA24EF2940D3A900EF0F7A /* PlayerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerCell.xib; sourceTree = "<group>"; };
+		32EA24F22941087900EF0F7A /* AddTrackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTrackViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +157,8 @@
 				32C90260293B8808000EBA37 /* TracklistViewController.swift */,
 				32C90262293B881B000EBA37 /* ProfileViewController.swift */,
 				32D078DA294010C2005111D2 /* Observable.swift */,
+				32EA24F22941087900EF0F7A /* AddTrackViewController.swift */,
+				32208A3B294A1667007DC3D0 /* AddAlbumViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -165,7 +171,7 @@
 				32C90274293B8F58000EBA37 /* AlbumsGateway.swift */,
 				32C90276293B8FCB000EBA37 /* PlaylistsGateway.swift */,
 				32C90278293B9106000EBA37 /* UsersGateway.swift */,
-				32C9027A293B9171000EBA37 /* GenreGateway.swift */,
+				32C9027A293B9171000EBA37 /* GenresGateway.swift */,
 				32D078D529400C83005111D2 /* GatewayProtocol.swift */,
 			);
 			path = Gateway;
@@ -243,6 +249,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32208A3C294A1667007DC3D0 /* AddAlbumViewController.swift in Sources */,
 				32C90269293B8B7C000EBA37 /* Album.swift in Sources */,
 				32C90275293B8F58000EBA37 /* AlbumsGateway.swift in Sources */,
 				32C90241293B7900000EBA37 /* LoginViewController.swift in Sources */,
@@ -264,10 +271,11 @@
 				32C90267293B8B63000EBA37 /* Artist.swift in Sources */,
 				32C9025F293B87E7000EBA37 /* GenreViewController.swift in Sources */,
 				32C90271293B8D63000EBA37 /* TracksGateway.swift in Sources */,
+				32EA24F32941087900EF0F7A /* AddTrackViewController.swift in Sources */,
 				32C90257293B875B000EBA37 /* RegisterViewController.swift in Sources */,
 				32C90259293B8799000EBA37 /* MainViewController.swift in Sources */,
 				32C90261293B8808000EBA37 /* TracklistViewController.swift in Sources */,
-				32C9027B293B9171000EBA37 /* GenreGateway.swift in Sources */,
+				32C9027B293B9171000EBA37 /* GenresGateway.swift in Sources */,
 				32C9025B293B87AE000EBA37 /* ArtistViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

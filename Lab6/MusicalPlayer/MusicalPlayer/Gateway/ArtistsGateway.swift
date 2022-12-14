@@ -71,6 +71,71 @@ class ArtistsGateway: GatewayProtocol {
         session.resume()
     }
     
+    func addArtist(_ name: String) {
+        struct Body: Encodable {
+            var name: String
+        }
+        let url = URL(string: self.aliUrl + "/artist/add")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.httpBody = try! JSONEncoder().encode(Body(name: name))
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        let session = URLSession.shared.dataTask(with: request) { data, _, error in
+            if let data = data {
+                do {
+                    let list = try JSONDecoder().decode([Artist].self, from: data)
+                    self.entities.value = list.map({ $0 })
+                }catch {
+                    print(String(describing: error))
+                }
+            }
+        }
+        session.resume()
+    }
+    
+    func update(_ id: Int, _ newValue: String) async {
+        struct Body: Encodable {
+            var name: String
+        }
+        let url = URL(string: self.aliUrl + "/artist/\(id)")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "PUT"
+        request.httpBody = try! JSONEncoder().encode(Body(name: newValue))
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        let session = URLSession.shared.dataTask(with: request) { data, _, error in
+            if let data = data {
+                do {
+                    let list = try JSONDecoder().decode([Artist].self, from: data)
+                    self.entities.value = list.map({ $0 })
+                }catch {
+                    print(String(describing: error))
+                }
+            }
+        }
+        session.resume()
+    }
+    
+    func delete(_ id: Int) async {
+        let url = URL(string: self.aliUrl + "/artist/delete/\(id)")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+        request.allowsCellularAccess = true
+        request.allowsExpensiveNetworkAccess = true
+        request.allowsConstrainedNetworkAccess = true
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        let session = URLSession.shared.dataTask(with: request) { data, _, error in
+            if let data = data {
+                do {
+                    let list = try JSONDecoder().decode([Artist].self, from: data)
+                    self.entities.value = list.map({ $0 })
+                }catch {
+                    print(String(describing: error))
+                }
+            }
+        }
+        session.resume()
+    }
+    
     func associatedImage() -> UIImage {
         return UIImage(systemName: "music.mic")!
     }

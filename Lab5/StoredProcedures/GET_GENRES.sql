@@ -17,7 +17,7 @@ BEGIN
 		INNER JOIN Album_has_Track 
 		INNER JOIN Track_has_Genre ON Track_has_Genre.Track_idTrack = Album_has_Track.Track_idTrack AND Track_has_Genre.Genre_idGenre = idGenre) as albums,
 	(SELECT COUNT(DISTINCT(idArtist)) FROM Artist 
-		INNER JOIN Track_has_Artist 
+		INNER JOIN Track_has_Artist ON Artist.idArtist = Track_has_Artist.Artist_idArtist
 		INNER JOIN Track_has_Genre ON Track_has_Genre.Track_idTrack = Track_has_Artist.Track_idTrack  AND Track_has_Genre.Genre_idGenre = idGenre) as artists
 	FROM Genre
 	ORDER BY Genre.idGenre;
