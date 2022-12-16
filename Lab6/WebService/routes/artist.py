@@ -107,7 +107,7 @@ def update_artist(id):
             results = "CALL willUpdateArtist(%s, %s);"
             binData = (id, _name)
             cursor.execute(results, binData)
-            result = cursor.fetchone()
+            result = cursor.fetchall()
             response = jsonify(result)
             response.status_code = 200
             conn.commit()

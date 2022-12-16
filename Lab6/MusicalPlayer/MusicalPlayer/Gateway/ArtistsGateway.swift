@@ -116,7 +116,7 @@ class ArtistsGateway: GatewayProtocol {
     }
     
     func delete(_ id: Int) async {
-        let url = URL(string: self.aliUrl + "/artist/delete/\(id)")!
+        let url = URL(string: self.aliUrl + "/artist/\(id)")!
         var request = URLRequest(url: url)
         request.httpMethod = "DELETE"
         request.allowsCellularAccess = true

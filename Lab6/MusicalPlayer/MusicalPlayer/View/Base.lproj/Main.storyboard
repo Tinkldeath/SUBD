@@ -236,13 +236,17 @@
                         <barButtonItem key="leftBarButtonItem" image="magnifyingglass" catalog="system" id="6Zf-gJ-I9V">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="person.circle" catalog="system" id="ot7-Zt-oKE">
+                        <barButtonItem key="rightBarButtonItem" image="doc.fill" catalog="system" id="ot7-Zt-oKE">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="logsClicked:" destination="nxw-33-AKi" id="X1G-g9-aBX"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="addButton" destination="GEt-ID-REM" id="hEU-WS-Nq4"/>
+                        <outlet property="docButton" destination="ot7-Zt-oKE" id="spI-Vu-RnC"/>
                         <outlet property="entitySegment" destination="cBB-tD-2qQ" id="yY0-ZJ-TEF"/>
                         <outlet property="tableView" destination="oeX-jj-lzG" id="ZA6-qc-dMn"/>
                     </connections>
@@ -697,6 +701,59 @@
             </objects>
             <point key="canvasLocation" x="2420" y="1339"/>
         </scene>
+        <!--Logs-->
+        <scene sceneID="7qa-Z0-dbE">
+            <objects>
+                <tableViewController storyboardIdentifier="LogsTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="AE4-Ab-cqn" customClass="LogsTableViewController" customModule="MusicalPlayer" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="K9v-Nk-IYi">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LogCell" textLabel="bCu-Dy-hbn" detailTextLabel="ZGY-r3-nhK" style="IBUITableViewCellStyleValue1" id="kVX-a1-apl">
+                                <rect key="frame" x="0.0" y="50" width="390" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kVX-a1-apl" id="KZf-rP-CRT">
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bCu-Dy-hbn">
+                                            <rect key="frame" x="20" y="15" width="25" height="14.333333333333334"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZGY-r3-nhK">
+                                            <rect key="frame" x="337.33333333333331" y="15" width="32.666666666666664" height="14.333333333333334"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="AE4-Ab-cqn" id="ReI-X4-oXL"/>
+                            <outlet property="delegate" destination="AE4-Ab-cqn" id="VyN-qp-Q5M"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Logs" id="2aS-vG-0FB">
+                        <barButtonItem key="leftBarButtonItem" image="chevron.left" catalog="system" id="Kvf-pE-jHn">
+                            <color key="tintColor" systemColor="labelColor"/>
+                            <connections>
+                                <action selector="backClicked:" destination="AE4-Ab-cqn" id="2YJ-2j-k47"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IUn-ph-2qe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3154" y="1339"/>
+        </scene>
         <!--Genre-->
         <scene sceneID="44y-53-k3v">
             <objects>
@@ -838,6 +895,7 @@
     </scenes>
     <resources>
         <image name="chevron.left" catalog="system" width="97" height="128"/>
+        <image name="doc.fill" catalog="system" width="115" height="128"/>
         <image name="info.circle" catalog="system" width="128" height="123"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="music.mic" catalog="system" width="128" height="119"/>

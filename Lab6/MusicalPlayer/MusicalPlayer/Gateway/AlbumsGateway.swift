@@ -67,11 +67,32 @@ class AlbumsGateway: GatewayProtocol {
     }
     
     func update(_ id: Int, _ newValue: String) async {
-
+        struct Body: Encodable {
+            var title: String
+        }
+        let url = URL(string: self.aliUrl + "/album/\(id)")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "PUT"
+        request.allowsCellularAccess = true
+        request.allowsExpensiveNetworkAccess = true
+        request.allowsConstrainedNetworkAccess = true
+        request.httpBody = try! JSONEncoder().encode(Body(title: newValue))
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        let session = URLSession.shared.dataTask(with: request) { data, _, error in
+            if let data = data {
+                do {
+                    let list = try JSONDecoder().decode([Album].self, from: data)
+                    self.entities.value = list.map({ $0 })
+                }catch {
+                    print(String(describing: error))
+                }
+            }
+        }
+        session.resume()
     }
     
     func delete(_ id: Int) async {
-        let url = URL(string: self.aliUrl + "/album/delete/\(id)")!
+        let url = URL(string: self.aliUrl + "/album/\(id)")!
         var request = URLRequest(url: url)
         request.httpMethod = "DELETE"
         request.allowsCellularAccess = true

@@ -6,6 +6,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var entitySegment: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var docButton: UIBarButtonItem!
     
     
     private var gateways: [Int: GatewayProtocol] = [
@@ -20,6 +21,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.docButton.isHidden = UsersGateway.shared.user?.Permission ?? 0 < 2
         self.addButton.isHidden = UsersGateway.shared.user?.Permission ?? 0 < 2
         self.current = self.gateways[self.entitySegment.selectedSegmentIndex]
         Task { [weak self] in
@@ -49,6 +51,12 @@ class MainViewController: UIViewController {
             Task {
                 self?.tableView.reloadData()
             }
+        }
+    }
+    
+    @IBAction func logsClicked(_ sender: Any) {
+        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "LogsTableViewController") as? LogsTableViewController {
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
     

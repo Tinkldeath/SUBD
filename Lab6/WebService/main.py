@@ -3,6 +3,7 @@ from routes.artist import *
 from routes.genre import *
 from routes.playlist import *
 from routes.track import *
+from routes.logs import *
 from routes.user import *
 
 

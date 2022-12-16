@@ -91,10 +91,9 @@ def update_album(id):
     try:
         _json = request.json
         _title = _json['title']
-        _idArtist = _json['idArtist']
-        if _title and _idArtist and request.method == 'PUT':
-            sqlQuery = "CALL willUpdateAlbum(%s, %s, %s);"
-            bindData = (id, _title, _idArtist)
+        if _title and request.method == 'PUT':
+            sqlQuery = "CALL willUpdateAlbum(%s, %s);"
+            bindData = (id, _title)
             cursor.execute(sqlQuery, bindData)
             results = "CALL getAlbums();"
             cursor.execute(results)

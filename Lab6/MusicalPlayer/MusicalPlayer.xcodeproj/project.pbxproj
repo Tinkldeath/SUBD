@@ -39,6 +39,9 @@
 		32EA24F02940D3A900EF0F7A /* PlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EA24EE2940D3A900EF0F7A /* PlayerCell.swift */; };
 		32EA24F12940D3A900EF0F7A /* PlayerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32EA24EF2940D3A900EF0F7A /* PlayerCell.xib */; };
 		32EA24F32941087900EF0F7A /* AddTrackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EA24F22941087900EF0F7A /* AddTrackViewController.swift */; };
+		32EE636B294CD149002C91F7 /* LogsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EE636A294CD149002C91F7 /* LogsTableViewController.swift */; };
+		32EE636D294CD16B002C91F7 /* LogsGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EE636C294CD16B002C91F7 /* LogsGateway.swift */; };
+		32EE636F294CD199002C91F7 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EE636E294CD199002C91F7 /* Log.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +79,9 @@
 		32EA24EE2940D3A900EF0F7A /* PlayerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCell.swift; sourceTree = "<group>"; };
 		32EA24EF2940D3A900EF0F7A /* PlayerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerCell.xib; sourceTree = "<group>"; };
 		32EA24F22941087900EF0F7A /* AddTrackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTrackViewController.swift; sourceTree = "<group>"; };
+		32EE636A294CD149002C91F7 /* LogsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogsTableViewController.swift; sourceTree = "<group>"; };
+		32EE636C294CD16B002C91F7 /* LogsGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogsGateway.swift; sourceTree = "<group>"; };
+		32EE636E294CD199002C91F7 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +136,7 @@
 				32C9026C293B8BED000EBA37 /* User.swift */,
 				32C9026E293B8C1F000EBA37 /* Genre.swift */,
 				32D078D829400C93005111D2 /* EntityProtocol.swift */,
+				32EE636E294CD199002C91F7 /* Log.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -159,6 +166,7 @@
 				32D078DA294010C2005111D2 /* Observable.swift */,
 				32EA24F22941087900EF0F7A /* AddTrackViewController.swift */,
 				32208A3B294A1667007DC3D0 /* AddAlbumViewController.swift */,
+				32EE636A294CD149002C91F7 /* LogsTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -173,6 +181,7 @@
 				32C90278293B9106000EBA37 /* UsersGateway.swift */,
 				32C9027A293B9171000EBA37 /* GenresGateway.swift */,
 				32D078D529400C83005111D2 /* GatewayProtocol.swift */,
+				32EE636C294CD16B002C91F7 /* LogsGateway.swift */,
 			);
 			path = Gateway;
 			sourceTree = "<group>";
@@ -256,12 +265,14 @@
 				32C90265293B8B45000EBA37 /* Track.swift in Sources */,
 				32C90279293B9106000EBA37 /* UsersGateway.swift in Sources */,
 				32C90273293B8ECF000EBA37 /* ArtistsGateway.swift in Sources */,
+				32EE636D294CD16B002C91F7 /* LogsGateway.swift in Sources */,
 				32C9026B293B8BDE000EBA37 /* Playlist.swift in Sources */,
 				32D078D629400C83005111D2 /* GatewayProtocol.swift in Sources */,
 				32C9025D293B87D2000EBA37 /* SearchViewController.swift in Sources */,
 				32C90263293B881B000EBA37 /* ProfileViewController.swift in Sources */,
 				32C90277293B8FCB000EBA37 /* PlaylistsGateway.swift in Sources */,
 				32D078DB294010C2005111D2 /* Observable.swift in Sources */,
+				32EE636B294CD149002C91F7 /* LogsTableViewController.swift in Sources */,
 				32EA24F02940D3A900EF0F7A /* PlayerCell.swift in Sources */,
 				32C9023D293B7900000EBA37 /* AppDelegate.swift in Sources */,
 				32C9026F293B8C1F000EBA37 /* Genre.swift in Sources */,
@@ -274,6 +285,7 @@
 				32EA24F32941087900EF0F7A /* AddTrackViewController.swift in Sources */,
 				32C90257293B875B000EBA37 /* RegisterViewController.swift in Sources */,
 				32C90259293B8799000EBA37 /* MainViewController.swift in Sources */,
+				32EE636F294CD199002C91F7 /* Log.swift in Sources */,
 				32C90261293B8808000EBA37 /* TracklistViewController.swift in Sources */,
 				32C9027B293B9171000EBA37 /* GenresGateway.swift in Sources */,
 				32C9025B293B87AE000EBA37 /* ArtistViewController.swift in Sources */,

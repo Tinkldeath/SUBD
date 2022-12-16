@@ -1,0 +1,12 @@
+DROP TRIGGER IF EXISTS `musical_player`.`Genre_BEFORE_INSERT`;
+
+DELIMITER $$
+USE `musical_player`$$
+CREATE DEFINER = CURRENT_USER TRIGGER `musical_player`.`Genre_BEFORE_INSERT` BEFORE INSERT ON `Genre` FOR EACH ROW
+BEGIN
+	IF EXISTS (SELECT * FROM Genre WHERE Genre.Title = NEW.Title) THEN 
+		SIGNAL SQLSTATE '45000'
+		SET MESSAGE_TEXT = 'Genre already exists';
+    END IF;
+END$$
+DELIMITER ;
